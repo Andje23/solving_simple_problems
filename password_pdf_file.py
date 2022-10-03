@@ -1,10 +1,15 @@
 import getpass
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
+from loguru import logger
+
+logger.add("password_pdf_file.log", format="{time} {level} {message}",
+           level="DEBUG", rotation="1 MB", compression="zip")
 
 password: str = getpass.getpass(prompt='Enter Password: ')
 
 
+@logger.catch
 def adding_password_to_pdf_file(*, file_name_and_path: str = "file.pdf", name_result_file: str = 'result.pdf',
                                 password: str = password) -> None:
     pdf_writer = PdfFileWriter()
