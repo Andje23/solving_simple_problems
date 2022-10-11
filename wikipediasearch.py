@@ -2,8 +2,13 @@ from tkinter import Frame, Entry, Tk, Button, TOP, Scrollbar, RIGHT, Y, Text, WO
 
 import wikipedia
 from wikipedia import PageError
+from loguru import logger
+
+logger.add("password_pdf_file.log", format="{time} {level} {message}",
+           level="DEBUG", rotation="1 MB", compression="zip")
 
 
+@logger.catch
 def get_data() -> None:
     entry_value = entry.get()
     answer.delete(1.0, END)
