@@ -54,6 +54,30 @@ axes.set_ylim(0, 255)
 axes.set_xlim(0, 2 * CHUNK)
 plt.setp(axes, xticks=[0, CHUNK, 2 * CHUNK], yticks=[0, 128, 255])
 
+plt.show(block=False)
+
+print('stream started')
+
+# for measuring frame rate
+frame_count: int = 0
+start_time: float = time.time()
+
+while True:
+    # binary data
+    data = stream.read(CHUNK)
+
+    # convert data to integers, make np array, then offset it by 127
+    data_int: tuple = struct.unpack(str(2 * CHUNK) + 'B', data)
+
+
+
+
+
+
+
+
+
+
 
 
 
