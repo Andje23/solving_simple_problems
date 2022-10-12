@@ -39,3 +39,24 @@ stream = pya.open(
     output=True,
     frames_per_buffer=CHUNK,
 )
+
+# variable for plotting
+x = np.arange(0, 2 * CHUNK, 2)
+
+# create a line object with random data
+line, = axes.plot(x, np.random.rand(CHUNK), '-', lw=2)
+
+# basic formatting for the axes
+axes.set_title('AUDIO WAVEFORM')
+axes.set_xlabel('sample')
+axes.set_ylabel('volume')
+axes.set_ylim(0, 255)
+axes.set_xlim(0, 2 * CHUNK)
+plt.setp(axes, xticks=[0, CHUNK, 2 * CHUNK], yticks=[0, 128, 255])
+
+
+
+
+
+
+
