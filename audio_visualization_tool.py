@@ -74,6 +74,15 @@ while True:
 
     line.set_ydata(data_np)
 
+    # update figure canvas
+    try:
+        figure.canvas.draw()
+        figure.canvas.flush_events()
+        frame_count += 1
+
+    except TclError:
+
+
 
 
 
