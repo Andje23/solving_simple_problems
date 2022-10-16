@@ -69,6 +69,11 @@ while True:
     # convert data to integers, make np array, then offset it by 127
     data_int: tuple = struct.unpack(str(2 * CHUNK) + 'B', data)
 
+    # create np array and offset by 128
+    data_np = np.array(data_int, dtype='b')[::2] + 128
+
+    line.set_ydata(data_np)
+
 
 
 
