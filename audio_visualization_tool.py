@@ -5,6 +5,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 from tkinter import TclError
+from loguru import logger
+
+logger.add("password_pdf_file.log", format="{time} {level} {message}",
+           level="DEBUG", rotation="1 MB", compression="zip")
 
 CHUNK: int = 1024 * 2           # sample per frame
 FORMAT: int = pyaudio.paInt16
@@ -56,7 +60,7 @@ plt.setp(axes, xticks=[0, CHUNK, 2 * CHUNK], yticks=[0, 128, 255])
 
 plt.show(block=False)
 
-print('stream started')
+logger.info("stream started")
 
 # for measuring frame rate
 frame_count: int = 0
@@ -81,6 +85,11 @@ while True:
         frame_count += 1
 
     except TclError:
+        # calculate average frame rate
+        frame_rate = frame_count / (time.time() - start_time)
+        logger.info("stream stopped")
+        logger.info(f"average frame rate {frame_rate}")
+        break
 
 
 
