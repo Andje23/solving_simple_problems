@@ -14,4 +14,7 @@ class Paint:
         self.brush_button: Button = Button(self.root, text='brush', command=self.use_brush)
         self.brush_button.grid(row=0, column=1)
 
+        self.color_button: Button = Button(self.root, text='brush', command=self.choose_color)
+        self.color_button.grid(row=0, column=2)
+
 
