@@ -17,4 +17,7 @@ class Paint:
         self.color_button: Button = Button(self.root, text='brush', command=self.choose_color)
         self.color_button.grid(row=0, column=2)
 
+        self.eraser_button: Button = Button(self.root, text='brush', command=self.use_eraser)
+        self.eraser_button.grid(row=0, column=3)
+
 
