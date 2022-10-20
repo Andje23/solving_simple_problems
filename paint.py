@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, HORIZONTAL
+from tkinter import Tk, Button, HORIZONTAL, Canvas
 
 
 class Paint:
@@ -22,5 +22,21 @@ class Paint:
 
         self.choose_size_button: Button = Button(self.root, from_=1, to=10, orient=HORIZONTAL)
         self.choose_size_button.grid(row=0, column=4)
+
+        self.c = Canvas(self.root, bg='white', width=600, height=600)
+        self.c.grid(row=1, columnspan=5)
+
+        self.setup()
+        self.root.mainloop()
+
+    def setup(self) -> None:
+        self.old_x: int = None
+        self.old_y: int = None
+        self.line_width = self.choose_size_button.get()
+        self.color = self.color
+        self.eraser_on = False
+        self.active_button = self.pen_button
+        self.c.bind('<B1-Motion', self.print)
+        self.c.bind('<ButtonRelease-1>', self.reset)
 
 
