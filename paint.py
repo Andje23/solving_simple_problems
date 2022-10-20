@@ -32,11 +32,14 @@ class Paint:
     def setup(self) -> None:
         self.old_x: int = None
         self.old_y: int = None
-        self.line_width = self.choose_size_button.get()
-        self.color = self.color
-        self.eraser_on = False
+        self.line_width: int = self.choose_size_button.get()
+        self.color: str = self.color
+        self.eraser_on: bool = False
         self.active_button = self.pen_button
         self.c.bind('<B1-Motion', self.print)
         self.c.bind('<ButtonRelease-1>', self.reset)
+
+    def use_pen(self) -> None:
+        self.activate_button(self.pen_button)
 
 
