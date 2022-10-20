@@ -1,4 +1,5 @@
 from tkinter import Tk, Button, HORIZONTAL, Canvas
+from tkinter.colorchooser import askcolor
 
 
 class Paint:
@@ -42,7 +43,11 @@ class Paint:
     def use_pen(self) -> None:
         self.activate_button(self.pen_button)
 
-    def use_brush(self):
+    def use_brush(self) -> None:
         self.activate_button(self.brush_button)
+
+    def choose_color(self) -> None:
+        self.eraser_on = False
+        self.color = askcolor(color=self.color)[1]
 
 
