@@ -42,4 +42,7 @@ class Paint:
     def use_pen(self) -> None:
         self.activate_button(self.pen_button)
 
+    def use_brush(self):
+        self.activate_button(self.brush_button)
+
 
