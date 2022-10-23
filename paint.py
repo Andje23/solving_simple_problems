@@ -47,7 +47,10 @@ class Paint:
         self.activate_button(self.brush_button)
 
     def choose_color(self) -> None:
-        self.eraser_on = False
+        self.eraser_on: bool = False
         self.color = askcolor(color=self.color)[1]
+
+    def use_eraser(self) -> None:
+        self.active_button(self.eraser_button, eraser_mode=True)
 
 
