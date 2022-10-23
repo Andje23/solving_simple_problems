@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, HORIZONTAL, Canvas, RAISED, SUNKEN
+from tkinter import Tk, Button, HORIZONTAL, Canvas, RAISED, SUNKEN, ROUND, TRUE
 from tkinter.colorchooser import askcolor
 
 
@@ -57,6 +57,15 @@ class Paint:
         self.activate_button.config(relief=RAISED)
         some_button.config(relief=SUNKEN)
         self.eraser_on = eraser_mode
+
+    def print(self, event):
+        self.line_width = self.choose_size_button.get()
+        paint_color = 'white' if self.eraser_on else self.color
+        if self.old_x and self.y:
+            self.c.create_line(self.old_x, self.old_y, event.x, event.y, width=self.line_width, fill=paint_color,
+                               capstyle=ROUND, smooth=TRUE, splinesteps=36)
+            self.old_x = event.x
+            self.old_y = event.y
 
 
 
