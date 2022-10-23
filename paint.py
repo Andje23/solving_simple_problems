@@ -37,7 +37,7 @@ class Paint:
         self.color: str = self.color
         self.eraser_on: bool = False
         self.active_button = self.pen_button
-        self.c.bind('<B1-Motion', self.print)
+        self.c.bind('<B1-Motion>', self.print)
         self.c.bind('<ButtonRelease-1>', self.reset)
 
     def use_pen(self) -> None:
