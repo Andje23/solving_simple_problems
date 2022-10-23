@@ -67,7 +67,7 @@ class Paint:
             self.old_x = event.x
             self.old_y = event.y
 
-    def reset(self, event):
+    def reset(self, event) -> None:
         self.old_x, self.old_y = None, None
 
 
