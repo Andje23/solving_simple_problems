@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, HORIZONTAL, Canvas
+from tkinter import Tk, Button, HORIZONTAL, Canvas, RAISED, SUNKEN
 from tkinter.colorchooser import askcolor
 
 
@@ -51,6 +51,13 @@ class Paint:
         self.color = askcolor(color=self.color)[1]
 
     def use_eraser(self) -> None:
-        self.active_button(self.eraser_button, eraser_mode=True)
+        self.activate_button(self.eraser_button, eraser_mode=True)
+
+    def activate_button(self, some_button: Button, eraser_mode: bool=False) -> None:
+        self.activate_button.config(relief=RAISED)
+        some_button.config(relief=SUNKEN)
+        self.eraser_on = eraser_mode
+
+
 
 
