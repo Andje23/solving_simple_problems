@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, HORIZONTAL, Canvas, RAISED, SUNKEN, ROUND, TRUE
+from tkinter import Tk, Button, HORIZONTAL, Canvas, RAISED, SUNKEN, ROUND, TRUE, Scale
 from tkinter.colorchooser import askcolor
 
 
@@ -21,7 +21,7 @@ class Paint:
         self.eraser_button: Button = Button(self.root, text='eraser', command=self.use_eraser)
         self.eraser_button.grid(row=0, column=3)
 
-        self.choose_size_button: Button = Button(self.root, from_=1, to=10, orient=HORIZONTAL)
+        self.choose_size_button: Button = Scale(self.root, from_=1, to=10, orient=HORIZONTAL)
         self.choose_size_button.grid(row=0, column=4)
 
         self.c = Canvas(self.root, bg='white', width=600, height=600)
